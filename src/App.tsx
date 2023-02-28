@@ -12,7 +12,7 @@ function App() {
           <span role="img" aria-label="hello">
             👋
           </span>
-          , i'm Djamel im Full - Stack Developer
+          , i'm Djamel im Full - Stack
         </p>
         <a
           className="App-link"
