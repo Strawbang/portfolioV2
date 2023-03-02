@@ -1,11 +1,8 @@
-FROM node:16-alpine
-RUN apk --no-cache add curl
+FROM node:16-alpine 
 WORKDIR /usr/app
-RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
 COPY . .
-ENV NODE_ENV development
-ENV CHOKIDAR_USEPOLLING=true
-ENV WATCHPACK_POLLING=true
-RUN pnpm install
+RUN npm ci 
+RUN npm run build
+ENV NODE_ENV production
 EXPOSE 3000
-CMD [ "pnpm", "start" ]
+CMD [ "npm", "run", "start:prod" ]
