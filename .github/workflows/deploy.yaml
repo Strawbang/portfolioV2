@@ -37,14 +37,14 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: deploy
+          task-definition: amazon-ecs-deploy-task-definition
           container-name: portfoliov2
           image: ${{ steps.build-image.outputs.image }}
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: ${{ steps.portfoliov2-task.outputs.task-definition }}
+          task-definition: ${{ task-def.outputs.task-definition  }}
           service: portfoliov2-service
           cluster: portfoliov2-cluster
           wait-for-service-stability: true
