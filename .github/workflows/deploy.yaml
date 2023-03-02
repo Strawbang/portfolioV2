@@ -39,7 +39,7 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: amazon-ecs-deploy-task-definition
+          task-definition: amazon-ecs-render-task-definition
           container-name: portfoliov2
           image: ${{ steps.build-image.outputs.image }}
 
