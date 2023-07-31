@@ -1,3 +1,11 @@
+terraform {
+  backend "s3" {
+    bucket = "configterraform"
+    key    = "portfoliov2/terraform.tfstate"
+    region = "eu-west-3"
+  }
+}
+
 data "aws_ami" "ubuntu" {
     most_recent = true
 
@@ -21,6 +29,6 @@ resource "aws_instance" "app_server" {
   key_name      = "EC2_1"
 
   tags = {
-    Name = var.ec2_name
+    Name = "StrawCode"
   }
 }
