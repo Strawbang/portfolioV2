@@ -5,6 +5,10 @@ data "aws_ami" "ubuntu" {
         name   = "name"
         values = ["debian-*"]
     }
+    filter {
+        name = "architecture"
+        values = ["x86_64"]
+    }
 }
 
 provider "aws" {
