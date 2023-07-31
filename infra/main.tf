@@ -10,18 +10,16 @@ data "aws_ami" "ubuntu" {
         name   = "virtualization-type"
         values = ["hvm"]
     }
-    
-    owners = ["099720109477"] # Canonical
 }
 
 provider "aws" {
-  region  = "eu-west-2"
+  region  = "eu-west-3"
 }
 
 resource "aws_instance" "app_server" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.micro"
-  key_name      = "app-ssh-key"
+  instance_type = "t2.micro"
+  key_name      = "EC2_1"
 
   tags = {
     Name = var.ec2_name
