@@ -3,15 +3,8 @@ data "aws_ami" "ubuntu" {
 
     filter {
         name   = "name"
-        values = ["ubuntu/images/hvm-ssd/*20.04-amd64-server-*"]
+        values = ["debian-*"]
     }
-
-    filter {
-        name   = "virtualization-type"
-        values = ["hvm"]
-    }
-
-owners = ["self"]
 }
 
 provider "aws" {
