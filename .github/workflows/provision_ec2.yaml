@@ -30,5 +30,6 @@ jobs:
           terraform apply -auto-approve
       - name: Save ENV Instance Public IP
         run: |
-          echo "INSTANCE_PUBLIC_IP=$(terraform output instance_public_ip)" >> $GITHUB_ENV
+          terraform output instance_public_ip
+          echo INSTANCE_PUBLIC_IP=$(terraform output instance_public_ip) >> $GITHUB_ENV
           echo ${{ env.INSTANCE_PUBLIC_IP }}
