@@ -33,5 +33,5 @@ jobs:
           cd infra/
           terraform init
           terraform output instance_public_ip
-          echo "ec2_instance_id=`terraform output -raw instance_id`" >> $GITHUB_ENV
-          echo ${{ env.INSTANCE_PUBLIC_IP }}
+          echo "EC2_INSTANCE_PUBLIC_IP=`terraform output -raw instance_public_ip_ip`" >> $GITHUB_ENV
+          echo ${{ env.EC2_INSTANCE_PUBLIC_IP }}
